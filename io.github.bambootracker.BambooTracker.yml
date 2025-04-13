@@ -1,0 +1,21 @@
+id: io.github.bambootracker.BambooTracker
+runtime: org.kde.Platform
+runtime-version: '6.8'
+sdk: org.kde.Sdk
+command: BambooTracker
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --socket=pulseaudio
+modules:
+  - name: BambooTracker
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_CXX_FLAGS=-Wno-error=deprecated-declarations -Wno-error=redundant-move
+    sources:
+      - type: git
+        url: https://github.com/BambooTracker/BambooTracker
+        tag: v0.6.5
+        commit: 8df6d723ae3afc28ebc0542eaab27709c50cb9a0
