@@ -19,3 +19,15 @@ modules:
         url: https://github.com/BambooTracker/BambooTracker
         tag: v0.6.5
         commit: 8df6d723ae3afc28ebc0542eaab27709c50cb9a0
+      - type: patch
+        paths:
+          - patches/native-file-dialog.patch
+    post-install:
+      - install -Dm644 data/icons/16x16/apps/BambooTracker.png ${FLATPAK_DEST}/share/icons/hicolor/16x16/apps/io.github.bambootracker.BambooTracker.png
+      - install -Dm644 data/icons/32x32/apps/BambooTracker.png ${FLATPAK_DEST}/share/icons/hicolor/32x32/apps/io.github.bambootracker.BambooTracker.png
+      - install -Dm644 data/icons/64x64/apps/BambooTracker.png ${FLATPAK_DEST}/share/icons/hicolor/64x64/apps/io.github.bambootracker.BambooTracker.png
+      - install -Dm644 data/icons/128x128/apps/BambooTracker.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/io.github.bambootracker.BambooTracker.png
+      - install -Dm644 data/icons/256x256/apps/BambooTracker.png ${FLATPAK_DEST}/share/icons/hicolor/256x256/apps/io.github.bambootracker.BambooTracker.png
+      - install -Dm644 data/mime/packages/application-x-btm.xml ${FLATPAK_DEST}/share/mime/packages/io.github.bambootracker.BambooTracker.xml
+      - install -Dm644 data/applications/BambooTracker.desktop ${FLATPAK_DEST}/share/applications/io.github.bambootracker.BambooTracker.desktop
+      - desktop-file-edit --set-key="Icon" --set-value="io.github.bambootracker.BambooTracker" ${FLATPAK_DEST}/share/applications/io.github.bambootracker.BambooTracker.desktop

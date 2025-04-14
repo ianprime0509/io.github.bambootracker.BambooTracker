@@ -1,0 +1,120 @@
+diff --git a/BambooTracker/gui/configuration_dialog.cpp b/BambooTracker/gui/configuration_dialog.cpp
+index 4c70bb81..cfcee91c 100644
+--- a/BambooTracker/gui/configuration_dialog.cpp
++++ b/BambooTracker/gui/configuration_dialog.cpp
+@@ -769,7 +769,7 @@ void ConfigurationDialog::on_colorLoadPushButton_clicked()
+ 	QString file = QFileDialog::getOpenFileName(this, tr("Open color scheme"),
+ 												QApplication::applicationDirPath() + "/skins",
+ 												tr("ini file (*.ini)") + ";;" + tr("All files (*)"), nullptr
+-#if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++#if 0
+ 												, QFileDialog::DontUseNativeDialog
+ #endif
+ 												);
+@@ -789,7 +789,7 @@ void ConfigurationDialog::on_colorSavePushButton_clicked()
+ 	QString file = QFileDialog::getSaveFileName(this, tr("Save color scheme"),
+ 												QApplication::applicationDirPath() + "/skins",
+ 												tr("ini file (*.ini)") + ";;" + tr("All files (*)"), nullptr
+-#if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++#if 0
+ 												, QFileDialog::DontUseNativeDialog
+ #endif
+ 												);
+diff --git a/BambooTracker/gui/instrument_editor/adpcm_sample_editor.cpp b/BambooTracker/gui/instrument_editor/adpcm_sample_editor.cpp
+index 8186501f..28f33a3f 100644
+--- a/BambooTracker/gui/instrument_editor/adpcm_sample_editor.cpp
++++ b/BambooTracker/gui/instrument_editor/adpcm_sample_editor.cpp
+@@ -704,7 +704,7 @@ void ADPCMSampleEditor::on_action_Import_triggered()
+ 	QString file = QFileDialog::getOpenFileName(this, tr("Import sample"),
+ 												(dir.isEmpty() ? "./" : dir),
+ 												tr("WAV signed 16-bit PCM (*.wav)") + ";;" + tr("All files (*)"), nullptr
+-#if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++#if 0
+ 												, QFileDialog::DontUseNativeDialog
+ #endif
+ 												);
+diff --git a/BambooTracker/gui/mainwindow.cpp b/BambooTracker/gui/mainwindow.cpp
+index d29a534d..75a6a5f8 100644
+--- a/BambooTracker/gui/mainwindow.cpp
++++ b/BambooTracker/gui/mainwindow.cpp
+@@ -1746,7 +1746,7 @@ void MainWindow::loadInstrument()
+ 	QString selectedFilter = filters.at(config_.lock()->getInstrumentOpenFormat());
+ 	const QStringList files = QFileDialog::getOpenFileNames(this, tr("Open instrument"), (dir.isEmpty() ? "./" : dir),
+ 															filters.join(";;"), &selectedFilter
+-														#if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++														#if 0
+ 															, QFileDialog::DontUseNativeDialog
+ 														#endif
+ 															);
+@@ -1811,7 +1811,7 @@ void MainWindow::saveInstrument()
+ 					   this, tr("Save instrument"),
+ 					   QString("%1/%2.bti").arg(dir.isEmpty() ? "." : dir, name),
+ 					   filters.join(";;"), &defaultFilter
+-				   #if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++				   #if 0
+ 					   , QFileDialog::DontUseNativeDialog
+ 				   #endif
+ 					   );
+@@ -1856,7 +1856,7 @@ void MainWindow::importInstrumentsFromBank()
+ 	QString selectedFilter = filters.at(config_.lock()->getBankOpenFormat());
+ 	QString file = QFileDialog::getOpenFileName(this, tr("Open bank"), (dir.isEmpty() ? "./" : dir),
+ 												filters.join(";;"), &selectedFilter
+-											#if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++											#if 0
+ 												, QFileDialog::DontUseNativeDialog
+ 											#endif
+ 												);
+@@ -2020,7 +2020,7 @@ void MainWindow::exportInstrumentsToBank()
+ 	QString defaultFilter = filters.front();	// btb
+ 	QString file = QFileDialog::getSaveFileName(this, tr("Save bank"), (dir.isEmpty() ? "./" : dir),
+ 												filters.join(";;"), &defaultFilter
+-											#if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++											#if 0
+ 												, QFileDialog::DontUseNativeDialog
+ 											#endif
+ 												);
+@@ -3331,7 +3331,7 @@ bool MainWindow::on_actionSave_As_triggered()
+ 					   this, tr("Save module"),
+ 					   QString("%1/%2.btm").arg(dir.isEmpty() ? "." : dir, getModuleFileBaseName()),
+ 					   tr("BambooTracker module (*.btm)") + ";;" + tr("All files (*)"), nullptr
+-				   #if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++				   #if 0
+ 					   , QFileDialog::DontUseNativeDialog
+ 				   #endif
+ 					   );
+@@ -3397,7 +3397,7 @@ void MainWindow::on_actionOpen_triggered()
+ 	QString dir = QString::fromStdString(config_.lock()->getWorkingDirectory());
+ 	QString file = QFileDialog::getOpenFileName(this, tr("Open module"), (dir.isEmpty() ? "./" : dir),
+ 												tr("BambooTracker module (*.btm)") + ";;" + tr("All files (*)"), nullptr
+-											#if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++											#if 0
+ 												, QFileDialog::DontUseNativeDialog
+ 											#endif
+ 												);
+@@ -3518,7 +3518,7 @@ void MainWindow::on_actionWAV_triggered()
+ 					   this, tr("Export to WAV"),
+ 					   QString("%1/%2.wav").arg(dir.isEmpty() ? "." : dir, getModuleFileBaseName()),
+ 					   tr("WAV signed 16-bit PCM (*.wav)") + ";;" + tr("All files (*)"), nullptr
+-				   #if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++				   #if 0
+ 					   , QFileDialog::DontUseNativeDialog
+ 				   #endif
+ 					   );
+@@ -3665,7 +3665,7 @@ void MainWindow::on_actionVGM_triggered()
+ 					   this, tr("Export to VGM"),
+ 					   QString("%1/%2.vgm").arg(dir.isEmpty() ? "." : dir, getModuleFileBaseName()),
+ 					   tr("VGM file (*.vgm)") + ";;" + tr("All files (*)"), nullptr
+-				   #if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++				   #if 0
+ 					   , QFileDialog::DontUseNativeDialog
+ 				   #endif
+ 					   );
+@@ -3744,7 +3744,7 @@ void MainWindow::on_actionS98_triggered()
+ 					   this, tr("Export to S98"),
+ 					   QString("%1/%2.s98").arg(dir.isEmpty() ? "." : dir, getModuleFileBaseName()),
+ 					   tr("S98 file (*.s98)") + ";;" + tr("All files (*)"), nullptr
+-				   #if defined(Q_OS_LINUX) || (defined(Q_OS_BSD4) && !defined(Q_OS_DARWIN))
++				   #if 0
+ 					   , QFileDialog::DontUseNativeDialog
+ 				   #endif
+ 					   );
